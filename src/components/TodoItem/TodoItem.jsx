@@ -1,9 +1,13 @@
+//React Imports
 import { React, Fragment } from "react";
+
+//Internal Imports
 import "./todoItem.scss";
-
-import { useDispatch } from "react-redux";
-
 import { deleteTodo } from "../../redux/actions";
+import trashCanImg from "../../img/trash.png";
+
+//Redux Imports
+import { useDispatch } from "react-redux";
 
 function TodoItem({ todoItem }) {
   const dispatch = useDispatch();
@@ -15,9 +19,17 @@ function TodoItem({ todoItem }) {
   return (
     <Fragment>
       <div className="todo-item">
-        <input type="checkbox" name="" id="" autocomplete="off" />
-        <p>{todoItem.todo}</p>
-        <button onClick={handleDeleteTodo}>X</button>
+        <div className="todo-text__container">
+          <p className="todo-item__text">{todoItem.todo}</p>
+        </div>
+
+        <div className="delete-btn__container">
+          <img
+            onClick={handleDeleteTodo}
+            src={trashCanImg}
+            className="todo-item__btn"
+          />
+        </div>
       </div>
     </Fragment>
   );

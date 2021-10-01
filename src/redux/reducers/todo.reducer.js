@@ -8,6 +8,8 @@ export const todoReducer = (state = { todo: [] }, action) => {
           (item) => item.id !== action.payload.payload.id
         ),
       };
+    case "DELETE_ALL_TODOS":
+      return { todo: [] };
 
     default:
       return state;
