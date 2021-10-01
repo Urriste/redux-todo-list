@@ -13,3 +13,9 @@ export const deleteTodo = (payload) => {
     payload: payload,
   };
 };
+
+export const deleteAllTodos = () => {
+  return {
+    type: "DELETE_ALL_TODOS",
+  };
+};
