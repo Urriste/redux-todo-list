@@ -15,7 +15,7 @@ function TodoItem({ todoItem }) {
   return (
     <Fragment>
       <div className="todo-item">
-        <input type="checkbox" name="" id="" />
+        <input type="checkbox" name="" id="" autocomplete="off" />
         <p>{todoItem.todo}</p>
         <button onClick={handleDeleteTodo}>X</button>
       </div>
