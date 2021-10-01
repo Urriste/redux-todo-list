@@ -31,8 +31,12 @@ function Main() {
 
   const handleAddTodo = () => {
     let input = document.querySelector("input");
-    input.value = "";
-    dispatch(addTodo(todo));
+
+    if (todo) {
+      dispatch(addTodo(todo));
+      setTodo("");
+      input.value = "";
+    }
   };
 
   const handleDeleteAll = () => {
@@ -42,8 +46,8 @@ function Main() {
   return (
     <Fragment>
       <div className="main-container">
-        <h1>TODO APP</h1>
-        <div className="input-container">
+        <h1>R-TODOLIST</h1>
+        <form className="input-container">
           <input
             className="todo-input"
             onChange={handleChange}
@@ -51,11 +55,12 @@ function Main() {
             name="todo"
             placeholder="Add your new todo"
             autoComplete="off"
+            required
           />
           <button className="todo-btn" onClick={handleAddTodo}>
             +
           </button>
-        </div>
+        </form>
         {todos &&
           todos.todo.map((item) => {
             return <TodoItem key={item.id} todoItem={item}></TodoItem>;
@@ -63,7 +68,7 @@ function Main() {
         {todos
           ? todos.todo.length > 0 && (
               <div className="main-container__footer">
-                <p className="footer-text"> {todos.todo.length} left </p>
+                <p className="footer-text"> {todos.todo.length} Left </p>
                 <button className="footer-btn" onClick={handleDeleteAll}>
                   Clear All{" "}
                 </button>
