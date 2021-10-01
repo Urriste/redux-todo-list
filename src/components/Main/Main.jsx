@@ -29,7 +29,8 @@ function Main() {
     setTodo(e.target.value);
   };
 
-  const handleAddTodo = () => {
+  const handleAddTodo = (e) => {
+    e.preventDefault();
     let input = document.querySelector("input");
 
     if (todo) {
